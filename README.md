@@ -46,7 +46,7 @@ Sample JSON:
 
 ## Wireframes
 
-[Mobile View] (https://wireframe.cc/vgF7JQ)
+[Mobile View](https://wireframe.cc/vgF7JQ) and 
 [Computer View](https://wireframe.cc/AeBPyN)
 
 #### MVP 
@@ -74,7 +74,7 @@ Sample JSON:
 
 ## Priority Matrix
 
-[Priority Matrix] (https://res.cloudinary.com/ams17b20/image/upload/v1597525586/Matrix/Priority%20Matrix.png)
+[Priority Matrix](https://res.cloudinary.com/ams17b20/image/upload/v1597525586/Matrix/Priority%20Matrix.png)
 
 ## Timeframes
 
