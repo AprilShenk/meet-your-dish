@@ -2,7 +2,7 @@
 
 ## Project Name
 
-Meet Your Dish
+On Call Chef
 
 ## Project Description
 
@@ -10,7 +10,7 @@ Allows user to find via search and via category for recipes. They will be able t
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+[TheMealDB](https://www.themealdb.com/api.php)
 
 Sample JSON:
 ```json
@@ -89,8 +89,8 @@ Sample JSON:
 | Working with API Data | M | 3hrs| --hrs | --hrs |
 | DOM manipulation | M | 3hrs| --hrs | --hrs |
 | Appending Elements | M | 2hrs| --hrs | --hrs |
-| Add Dynamic HTML | M | 2hrs| --hrs | --hrs |
-| Advanced CSS | M | 2hrs| --hrs | --hrs |
+| Add Dynamic HTML and CSS | L | 2hrs| --hrs | --hrs |
+| Advanced CSS | L | 2hrs| --hrs | --hrs |
 | Testing and Debugging CSS | M | 2hrs| --hrs | --hrs |
 | Testing and Debugging Functionality | M | 2hrs| --hrs | --hrs |
 | Total | H | 28hrs| --hrs | --hrs |
