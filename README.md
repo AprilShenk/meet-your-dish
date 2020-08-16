@@ -91,7 +91,9 @@ Sample JSON:
 | Appending Elements | M | 2hrs| --hrs | --hrs |
 | Add Dynamic HTML | M | 2hrs| --hrs | --hrs |
 | Advanced CSS | M | 2hrs| --hrs | --hrs |
-| Total | H | 24hrs| --hrs | --hrs |
+| Testing and Debugging CSS | M | 2hrs| --hrs | --hrs |
+| Testing and Debugging Functionality | M | 2hrs| --hrs | --hrs |
+| Total | H | 28hrs| --hrs | --hrs |
 
 ## Code Snippet
 
