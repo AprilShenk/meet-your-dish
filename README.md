@@ -2,7 +2,7 @@
 
 ## Project Name
 
-On Call Chef
+Taste The Best
 
 ## Project Description
 
@@ -51,6 +51,7 @@ Sample JSON:
 
 #### MVP 
 
+- Allow users to search via category or name.
 - Get information from an API and display after search.
 - Elements appear at the bottom of the page. 
 - Buttons change when hovered over.
