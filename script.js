@@ -46,6 +46,7 @@ const getDishes = async(category) => {
     data = response.data.meals
     dishDropdown()
     getDishOptions(data)
+    // Event listener
     const dishSubmit = document.querySelector('#dish-submit')
     dishSubmit.addEventListener('click', getDishValue)
   } catch (error) {
@@ -79,9 +80,57 @@ function getDishOptions(dataList) {
   })
 }
 
-// Event listener for dish
+// Event listener callback for dish
 function getDishValue(e) {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
-  console.log(dishValue)
+  dishInfo(dishValue)
 }
+
+// API call to get dish selection
+const dishInfo = async dishName => {
+  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${dishName}`
+  removeDiv()
+  try {
+    const response = await axios.get(url)
+    const data = response.data.meals[0]
+    console.log(response.data.meals[0])
+    appendDiv(data)
+  } catch (error) {
+    console.log(`Error: ${error}`)
+  }
+}
+
+// Append dish div 
+function appendDiv(data) {
+  // Setting Info
+  const section = document.querySelector('.append-elements')
+  const div = document.createElement('div')
+  const title = document.createElement('h3')
+  title.textContent = data.strMeal
+  const photo = document.createElement('img')
+  photo.src = data.strMealThumb
+  const instructions = document.createElement('p')
+  instructions.textContent = data.strInstructions
+  // Not sure about adding ingredients 
+
+  // Append
+  section.append(div)
+  div.append(title)
+  div.append(photo)
+  div.append(instructions)
+}
+
+function removeDiv() {
+  const oldDiv = document.querySelector('.append-elements')
+  while (oldDiv.lastChild) {
+    oldDiv.removeChild(oldDiv.lastChild)
+  }
+}
+
+
+
+// Bugs
+// Need to find a way to reset second dropdown upon changing
+// Ingredients from multiple lines. Line 115
+// Styling objects within the div. Should I wrap everything in a div?

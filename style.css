@@ -1,4 +1,35 @@
 body {
   display: flex;
+  flex-flow: column;
   background-color: grey;
+  height: 90vh;
+  text-align: center;
+}
+
+header,
+footer {
+  width: 100%;
+}
+
+main {
+  flex: 1;
+}
+
+div {
+  border: 1px solid black;
+  justify-content: flex-start;
+  flex-grow: 2;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+a {
+  text-decoration: none;
+}
+
+div {
+  display: flex;
 }
