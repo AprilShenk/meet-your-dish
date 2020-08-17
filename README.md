@@ -58,7 +58,7 @@ Sample JSON:
 
 #### PostMVP  
 
-- Implement a flip card for more information.
+- Implement a view more information drop down for mobile.
 - Use local storage to save user favorites.
 - Add additional media query. 
 
