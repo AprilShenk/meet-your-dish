@@ -1,3 +1,4 @@
+// Calls API for information
 const categoryOptions = async () => {
   const url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
   try {
@@ -12,6 +13,7 @@ const categoryOptions = async () => {
 
 categoryOptions()
 
+// Populates category information into dropdown
 function categoryValues(dataList) {
   dataList.forEach(element => {
     const select = document.querySelector('#category-dropdown')
@@ -23,15 +25,20 @@ function categoryValues(dataList) {
     select.append(categoryOption)
   })
 }
-// ...........
 
-
+// Event listener callback function to get category
+// Calls second API call with category
 function getCategoryValue(e) {
   e.preventDefault()
   const categoryValue = document.querySelector('#category-dropdown').value
   getDishes(categoryValue)
 }
 
+// Event listener for category
+const categorySubmit = document.querySelector('#category-submit')
+categorySubmit.addEventListener('click', getCategoryValue)
+
+// API call to get dish items into dropdown
 const getDishes = async(category) => {
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
   try {
@@ -46,9 +53,7 @@ const getDishes = async(category) => {
   }
 }
 
-const categorySubmit = document.querySelector('#category-submit')
-categorySubmit.addEventListener('click', getCategoryValue)
-
+// Creates dish form
 function dishDropdown() {
   const categorySection = document.querySelector('.category')
   const dishForm = document.createElement('form')
@@ -62,6 +67,7 @@ function dishDropdown() {
   categorySection.append(dishForm)
 }
 
+// Populates dish dropdown
 function getDishOptions(dataList) {
   dataList.forEach(element => {
     const dishOption = document.createElement('option')
@@ -73,6 +79,7 @@ function getDishOptions(dataList) {
   })
 }
 
+// Event listener for dish
 function getDishValue(e) {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
