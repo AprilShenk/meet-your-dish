@@ -67,7 +67,7 @@ Sample JSON:
 |  Day | Deliverable | Status
 |---|---| ---|
 |August 14-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
-|August 17| Project Approval / Pseudocode / Base HTML & CSS | Incomplete
+|August 17| Project Approval / Pseudocode / Base HTML & CSS | Complete
 |August 18| CSS Flexbox Styling / Retrive API Data | Incomplete
 |August 19| DOM manipulation / Event Listeners | Incomplete
 |August 20| Advanced CSS / Addiontal Features | Incomplete
@@ -81,12 +81,12 @@ Sample JSON:
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Pseudocode | L | 1hrs| --hrs | --hrs |
-| Base HTML & CSS | M | 2hrs| --hrs | --hrs |
-| CSS Flexbox Styling | H | 3hrs| --hrs | --hrs |
+| Pseudocode | L | 1hrs| 1hrs | 1hrs |
+| Base HTML & CSS | M | 2hrs| 1hrs | 1hrs |
+| CSS Flexbox Styling | H | 3hrs| 0.5hrs | 0.5hrs |
 | Media Query | M | 3hrs| --hrs | --hrs |
-| Event Listeners | M | 2hrs| --hrs | --hrs |
-| Retrive API Data | H | 2hrs| --hrs | --hrs |
+| Event Listeners | M | 2hrs| 0.5hrs | 0.5hrs |
+| Retrive API Data | H | 2hrs| 2hrs | 2hrs |
 | Working with API Data | M | 3hrs| --hrs | --hrs |
 | DOM manipulation | M | 3hrs| --hrs | --hrs |
 | Appending Elements | M | 2hrs| --hrs | --hrs |
