@@ -66,7 +66,7 @@ Sample JSON:
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|August 14-16| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|August 14-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |August 17| Project Approval / Pseudocode / Base HTML & CSS | Incomplete
 |August 18| CSS Flexbox Styling / Retrive API Data | Incomplete
 |August 19| DOM manipulation / Event Listeners | Incomplete
