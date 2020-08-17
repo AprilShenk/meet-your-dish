@@ -39,23 +39,27 @@ const getDishes = async(category) => {
     data = response.data.meals
     dishDropdown()
     getDishOptions(data)
+    const dishSubmit = document.querySelector('#dish-submit')
+    dishSubmit.addEventListener('click', getDishValue)
   } catch (error) {
     console.log(`Error: ${error}`)
   }
 }
 
-const form = document.querySelector('form')
-form.addEventListener('submit', getCategoryValue)
+const categorySubmit = document.querySelector('#category-submit')
+categorySubmit.addEventListener('click', getCategoryValue)
 
 function dishDropdown() {
+  const categorySection = document.querySelector('.category')
+  const dishForm = document.createElement('form')
   const select = document.createElement('select')
   select.id = 'dish-dropdown'
-  form.append(select)
+  dishForm.append(select)
   const submit = document.createElement('button')
   submit.textContent = 'Submit'
   submit.id = 'dish-submit'
-  form.append(submit)
-  // removeSubmit()
+  dishForm.append(submit)
+  categorySection.append(dishForm)
 }
 
 function getDishOptions(dataList) {
@@ -69,9 +73,8 @@ function getDishOptions(dataList) {
   })
 }
 
-function removeSubmit() {
-  const submit = document.querySelector('#dish-submit')
-  while (submit.lastChild) {
-    submit.removeChild(submit.lastChild)
-  }
+function getDishValue(e) {
+  e.preventDefault()
+  const dishValue = document.querySelector('#dish-dropdown').value
+  console.log(dishValue)
 }
