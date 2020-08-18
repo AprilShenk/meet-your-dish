@@ -92,7 +92,6 @@ function getDishValue(e) {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
   dishInfo(dishValue)
-  
 }
 
 // API call to get dish selection
@@ -105,6 +104,7 @@ const dishInfo = async dishName => {
     appendDiv(data)
   } catch (error) {
     console.log(`Error: ${error}`)
+    alert(`No results found`)
   }
 }
 
@@ -149,5 +149,13 @@ function removeDiv() {
   }
 }
 
+function getNameValue(e) {
+  e.preventDefault()
+  const name = document.querySelector('input').value
+  dishInfo(name)
+}
+
+const nameSubmit = document.querySelector('#name-submit')
+nameSubmit.addEventListener('click', getNameValue)
+
 // Bugs
-// Search options side by side in desktop view

@@ -1,7 +1,8 @@
 body {
   display: flex;
   flex-flow: column;
-  background-color: grey;
+  background-color: #D8C3A5;
+  color: #E85A4F;
   height: 90vh;
   text-align: center;
 }
@@ -14,6 +15,7 @@ footer {
 
 main {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   flex: 1;
 }
@@ -22,10 +24,19 @@ select,
 input {
   max-width: 80%;
   margin: 5px;
+  background-color: #EAE7DC;
+}
+
+button {
+  background-color: #EAE7DC;
+  border-radius: 10%;
+}
+
+button:hover {
+  background-color: #E98074;
 }
 
 .container > div {
-  border: 1px solid black;
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
@@ -64,13 +75,14 @@ img {
 
 a {
   text-decoration: none;
+  color: #8E8D8A
 }
 
 div {
   display: flex;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   main {
     display: flex;
     flex-flow: column;
