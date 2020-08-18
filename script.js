@@ -25,7 +25,6 @@ function categoryValues(dataList) {
     select.append(categoryOption)
   })
 }
-
 // Event listener callback function to get category
 // Calls second API call with category
 function getCategoryValue(e) {
@@ -58,7 +57,13 @@ const getDishes = async(category) => {
 function dishDropdown() {
   const categorySection = document.querySelector('.category')
   // console.log(categorySection.childNodes)
+
+  console.log(document.querySelector('.dish-form'))
+  if(document.querySelector('.dish-form')){
+    document.querySelector('.dish-form').remove()
+  }
   const dishForm = document.createElement('form')
+
   dishForm.className = 'dish-form'
   const select = document.createElement('select')
   select.id = 'dish-dropdown'
@@ -106,7 +111,10 @@ const dishInfo = async dishName => {
 // Append dish div 
 function appendDiv(data) {
   // Setting Info
-  const section = document.querySelector('.append-elements')
+  const section = document.querySelector('.container')
+  const ingredientSection = document.createElement('ul')
+  ingredientSection.className = 'ingredient-list'
+  ingredientSection.textContent = 'Ingredient List'
   const div = document.createElement('div')
   const title = document.createElement('h3')
   title.textContent = data.strMeal
@@ -116,11 +124,25 @@ function appendDiv(data) {
   instructions.textContent = data.strInstructions
   // Not sure about adding ingredients 
 
+  console.log(data)
+  for (item in data) {
+    // console.log(data[item], item)
+    const ingredient = document.createElement('li')
+    if (item.substring(3, 6) === 'Ing') {
+      ingredient.append(data[item])
+      ingredientSection.append(ingredient)
+
+    } 
+    // console.log(item.substring(3,6))
+  }
+  // data.forEach(item => console.log(item))
+
   // Append
   section.append(div)
   div.append(title)
   div.append(photo)
   div.append(instructions)
+  div.append(ingredientSection)
 }
 
 function removeDishDropdown() {
@@ -132,13 +154,11 @@ function removeDishDropdown() {
 }
 
 function removeDiv() {
-  const oldDiv = document.querySelector('.append-elements')
+  const oldDiv = document.querySelector('.container')
   while (oldDiv.lastChild) {
     oldDiv.removeChild(oldDiv.lastChild)
   }
 }
-
-
 
 // Bugs
 // Need to find a way to reset second dropdown upon changing
