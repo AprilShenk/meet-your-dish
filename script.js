@@ -122,9 +122,8 @@ function appendDiv(data) {
   photo.src = data.strMealThumb
   const instructions = document.createElement('p')
   instructions.textContent = data.strInstructions
-  // Not sure about adding ingredients 
 
-  console.log(data)
+  // Get Ingredients
   for (item in data) {
     // console.log(data[item], item)
     const ingredient = document.createElement('li')
@@ -133,9 +132,7 @@ function appendDiv(data) {
       ingredientSection.append(ingredient)
 
     } 
-    // console.log(item.substring(3,6))
   }
-  // data.forEach(item => console.log(item))
 
   // Append
   section.append(div)
@@ -143,14 +140,6 @@ function appendDiv(data) {
   div.append(photo)
   div.append(instructions)
   div.append(ingredientSection)
-}
-
-function removeDishDropdown() {
-  const oldDropDown = document.querySelector('#dish-dropdown')
-  console.log(oldDropDown)
-  while (oldDropDown.lastChild) {
-    oldDiv.removeChild(oldDropDown.lastChild)
-  }
 }
 
 function removeDiv() {
@@ -161,6 +150,4 @@ function removeDiv() {
 }
 
 // Bugs
-// Need to find a way to reset second dropdown upon changing
-// Ingredients from multiple lines. Line 115
-// Styling objects within the div. Should I wrap everything in a div?
+// Search options side by side in desktop view

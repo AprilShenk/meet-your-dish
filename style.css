@@ -8,11 +8,20 @@ body {
 
 header,
 footer {
+  flex: 0;
   width: 100%;
 }
 
 main {
+  display: flex;
+  justify-content: space-around;
   flex: 1;
+}
+
+select,
+input {
+  max-width: 80%;
+  margin: 5px;
 }
 
 .container > div {
@@ -48,7 +57,6 @@ div > p {
   font-weight: lighter;
 }
 
-
 img {
   height: 200px;
   width: 200px;
@@ -60,4 +68,21 @@ a {
 
 div {
   display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    display: flex;
+    flex-flow: column;
+  }
+  .container > div {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  div > p {
+    width: 75%;
+  }
+  .ingredient-list {
+    display: none;
+  }
 }
