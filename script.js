@@ -56,9 +56,7 @@ const getDishes = async(category) => {
 // Creates dish form
 function dishDropdown() {
   const categorySection = document.querySelector('.category')
-  // console.log(categorySection.childNodes)
 
-  console.log(document.querySelector('.dish-form'))
   if(document.querySelector('.dish-form')){
     document.querySelector('.dish-form').remove()
   }
@@ -102,6 +100,7 @@ const dishInfo = async dishName => {
   try {
     const response = await axios.get(url)
     const data = response.data.meals[0]
+    console.log(data)
     appendDiv(data)
   } catch (error) {
     console.log(`Error: ${error}`)
@@ -120,6 +119,9 @@ function appendDiv(data) {
   const div = document.createElement('div')
   const title = document.createElement('h3')
   title.textContent = data.strMeal
+  const website = document.createElement('a')
+  website.href = data.strSource
+  website.textContent = 'View on Original Website'
   const photo = document.createElement('img')
   photo.src = data.strMealThumb
   const instructions = document.createElement('p')
@@ -142,6 +144,7 @@ function appendDiv(data) {
   div.append(photo)
   div.append(instructions)
   div.append(ingredientSection)
+  div.append(website)
 }
 
 // Remove last child of container
