@@ -57,7 +57,9 @@ const getDishes = async(category) => {
 // Creates dish form
 function dishDropdown() {
   const categorySection = document.querySelector('.category')
+  // console.log(categorySection.childNodes)
   const dishForm = document.createElement('form')
+  dishForm.className = 'dish-form'
   const select = document.createElement('select')
   select.id = 'dish-dropdown'
   dishForm.append(select)
@@ -85,6 +87,7 @@ function getDishValue(e) {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
   dishInfo(dishValue)
+  
 }
 
 // API call to get dish selection
@@ -94,7 +97,6 @@ const dishInfo = async dishName => {
   try {
     const response = await axios.get(url)
     const data = response.data.meals[0]
-    console.log(response.data.meals[0])
     appendDiv(data)
   } catch (error) {
     console.log(`Error: ${error}`)
@@ -119,6 +121,14 @@ function appendDiv(data) {
   div.append(title)
   div.append(photo)
   div.append(instructions)
+}
+
+function removeDishDropdown() {
+  const oldDropDown = document.querySelector('#dish-dropdown')
+  console.log(oldDropDown)
+  while (oldDropDown.lastChild) {
+    oldDiv.removeChild(oldDropDown.lastChild)
+  }
 }
 
 function removeDiv() {
