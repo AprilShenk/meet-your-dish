@@ -98,6 +98,7 @@ function getDishValue(e) {
 const dishInfo = async dishName => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${dishName}`
   removeDiv()
+  clearInput()
   try {
     const response = await axios.get(url)
     const data = response.data.meals[0]
@@ -106,6 +107,7 @@ const dishInfo = async dishName => {
     console.log(`Error: ${error}`)
     alert(`No results found`)
   }
+  
 }
 
 // Append dish div 
@@ -142,6 +144,7 @@ function appendDiv(data) {
   div.append(ingredientSection)
 }
 
+// Remove last child of container
 function removeDiv() {
   const oldDiv = document.querySelector('.container')
   while (oldDiv.lastChild) {
@@ -149,12 +152,20 @@ function removeDiv() {
   }
 }
 
+// Get name value from input
 function getNameValue(e) {
   e.preventDefault()
   const name = document.querySelector('input').value
   dishInfo(name)
 }
 
+// Resets input 
+function clearInput() {
+  const input = document.querySelector('input')
+  input.value = ''
+}
+
+// Event Listener for name input
 const nameSubmit = document.querySelector('#name-submit')
 nameSubmit.addEventListener('click', getNameValue)
 
