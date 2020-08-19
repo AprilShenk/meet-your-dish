@@ -93,6 +93,7 @@ function getDishValue(e) {
   dishInfo(dishValue)
 }
 
+// Creates section container
 function createContanier() {
   const main = document.querySelector('main')
   const containerSection = document.createElement('section')
@@ -167,6 +168,7 @@ function removeDiv() {
 function getNameValue(e) {
   e.preventDefault()
   const name = document.querySelector('input').value
+  createContanier()
   dishInfo(name)
 }
 
