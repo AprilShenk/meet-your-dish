@@ -36,18 +36,29 @@ button:hover {
   background-color: #E98074;
 }
 
+.container {
+  margin: 2em 1em;
+}
+
 .container > div {
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
   flex-grow: 2;
+  max-height: 500px;
 }
+
+div > * {
+  margin: 1em;
+}
+
 div > h3 {
   width: 100%;
   flex: 2 1 auto;
+  margin-bottom: 2em;
 }
 
 div > img {
@@ -57,17 +68,18 @@ div > img {
 div > p {
   width: 50%;
   flex-basis: content;
-  padding: 3px;
 }
 
 div > a {
   width: 100%;
   align-self: flex-end;
   justify-self: center;
+  margin-top: 2em;
 }
 
 .ingredient-list {
   font-weight: bold;
+  padding-inline-start: 10px;
 }
 
 .ingredient-list > li {
@@ -89,13 +101,19 @@ div {
   display: flex;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
+  .ingredient-list {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   main {
     display: flex;
     flex-flow: column;
   }
   img {
-    height: 90%vh;
+    height: 80%;
   }
   .container > div {
     flex-flow: column wrap;

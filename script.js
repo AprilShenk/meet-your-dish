@@ -109,7 +109,7 @@ const dishInfo = async dishName => {
   try {
     const response = await axios.get(url)
     const data = response.data.meals[0]
-    console.log(data)
+    // console.log(data)
     appendDiv(data)
   } catch (error) {
     console.log(`Error: ${error}`)
