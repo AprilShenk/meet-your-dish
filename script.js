@@ -89,7 +89,15 @@ function getDishOptions(dataList) {
 function getDishValue(e) {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
+  createContanier()
   dishInfo(dishValue)
+}
+
+function createContanier() {
+  const main = document.querySelector('main')
+  const containerSection = document.createElement('section')
+  containerSection.className = 'container'
+  main.append(containerSection)
 }
 
 // API call to get dish selection
