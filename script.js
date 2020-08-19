@@ -89,12 +89,12 @@ function getDishOptions(dataList) {
 function getDishValue(e) {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
-  createContanier()
+  createContainer()
   dishInfo(dishValue)
 }
 
 // Creates section container
-function createContanier() {
+function createContainer() {
   const main = document.querySelector('main')
   const containerSection = document.createElement('section')
   containerSection.className = 'container'
@@ -168,7 +168,7 @@ function removeDiv() {
 function getNameValue(e) {
   e.preventDefault()
   const name = document.querySelector('input').value
-  createContanier()
+  createContainer()
   dishInfo(name)
 }
 
