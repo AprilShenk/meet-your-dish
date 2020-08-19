@@ -16,13 +16,18 @@ footer {
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex: 1;
+}
+
+.name, 
+.category {
+  width: 50%;
 }
 
 select,
 input {
-  max-width: 80%;
+  max-width: 70%;
   margin: 5px;
   background-color: #EAE7DC;
 }
@@ -103,11 +108,19 @@ div {
   display: flex;
 }
 
-/* @media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
   .ingredient-list {
     display: none;
   }
-} */
+  select,
+  input {
+    max-width: 40%;
+  }
+  img {
+    width: 40%;
+    height: auto;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   main {
