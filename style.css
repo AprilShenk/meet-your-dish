@@ -5,7 +5,7 @@ body {
   color: #E85A4F;
   height: 90vh;
   text-align: center;
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 header,
@@ -65,7 +65,8 @@ button:hover {
 .dish-div > h3 {
   width: 100%;
   flex: 2 1 auto;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
+  font-size: 1em;
 }
 
 .dish-div > img {
