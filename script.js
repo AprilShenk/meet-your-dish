@@ -34,8 +34,8 @@ function getCategoryValue(e) {
 }
 
 // Event listener for category
-const categorySubmit = document.querySelector('#category-submit')
-categorySubmit.addEventListener('click', getCategoryValue)
+const categorySubmit = document.querySelector('#category-dropdown')
+categorySubmit.addEventListener('change', getCategoryValue)
 
 // API call to get dish items into dropdown
 const getDishes = async(category) => {
@@ -126,6 +126,7 @@ function appendDiv(data) {
   ingredientSection.className = 'ingredient-list'
   ingredientSection.textContent = 'Ingredient List'
   const div = document.createElement('div')
+  div.className = 'dish-div'
   const title = document.createElement('h3')
   title.textContent = data.strMeal
   const website = document.createElement('a')
@@ -133,7 +134,7 @@ function appendDiv(data) {
   website.textContent = 'View on Original Website'
   const photo = document.createElement('img')
   photo.src = data.strMealThumb
-  const instructions = document.createElement('p')
+  const instructions = document.createElement('div')
   instructions.textContent = data.strInstructions
 
   // Get Ingredients
