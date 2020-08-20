@@ -8,6 +8,10 @@ body {
   font-family: 'Barlow', sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 header,
 footer {
   flex: 0;
@@ -32,11 +36,13 @@ input {
   max-width: 70%;
   margin: 5px;
   background-color: #EAE7DC;
+  border-color: transparent;
 }
 
 button {
   background-color: #EAE7DC;
   border-radius: 10%;
+  border-color: transparent;
 }
 
 button:hover {
@@ -65,8 +71,8 @@ button:hover {
 .dish-div > h3 {
   width: 100%;
   flex: 2 1 auto;
-  margin-bottom: 2rem;
-  font-size: 1em;
+  margin-bottom: 1rem;
+  font-size: 2em;
 }
 
 .dish-div > img {
