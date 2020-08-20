@@ -5,12 +5,14 @@ body {
   color: #E85A4F;
   height: 90vh;
   text-align: center;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 header,
 footer {
   flex: 0;
   width: 100%;
+  padding: 0.5em;
 }
 
 main {
@@ -73,8 +75,12 @@ button:hover {
 .dish-div > div {
   width: 40%;
   max-height: 350px;
-  overflow: scroll;
+  overflow-y: scroll;
   flex-basis: content;
+}
+
+div::-webkit-scrollbar {
+  display: none;
 }
 
 .dish-div > a {
