@@ -69,7 +69,7 @@ Sample JSON:
 |August 14-16| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |August 17| Project Approval / Pseudocode / Base HTML & CSS | Complete
 |August 18| CSS Flexbox Styling / Retrive API Data | Complete
-|August 19| DOM manipulation / Event Listeners | Incomplete
+|August 19| DOM manipulation / Event Listeners | Complete
 |August 20| Advanced CSS / Addiontal Features | Incomplete
 |August 21| Presentations | Incomplete
 
@@ -82,19 +82,19 @@ Sample JSON:
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Pseudocode | L | 1hrs| 1hrs | 1hrs |
-| Base HTML & CSS | M | 2hrs| 1hrs | 1hrs |
-| CSS Flexbox Styling | H | 3hrs| 1hrs | 1hrs |
-| Media Query | M | 3hrs| 0.5hrs | --hrs |
+| Base HTML & CSS | M | 2hrs| 2hrs | 2hrs |
+| CSS Flexbox Styling | H | 3hrs| 2hrs | 2hrs |
+| Media Query | M | 3hrs| 2.5hrs | 2.5hrs |
 | Event Listeners | M | 2hrs| 1hrs | 1hrs |
 | Retrive API Data | H | 2hrs| 2hrs | 2hrs |
-| Working with API Data | M | 3hrs| 1hrs | 1hrs |
+| Working with API Data | M | 3hrs| 3hrs | 3hrs |
 | DOM manipulation | M | 3hrs| 2hrs | 2hrs |
 | Appending Elements | M | 2hrs| 2hrs | 2hrs |
 | Add Dynamic HTML and CSS | L | 3hrs| --hrs | --hrs |
 | Advanced CSS | L | 2hrs| --hrs | --hrs |
-| Testing and Debugging CSS | M | 3hrs| --hrs | --hrs |
-| Testing and Debugging Functionality | M | 3hrs| --hrs | --hrs |
-| Total | H | 32hrs| 14.5hrs | 14.5hrs |
+| Testing and Debugging CSS | M | 3hrs| 2hrs | 2hrs |
+| Testing and Debugging Functionality | M | 3hrs| 2hrs | 2hrs |
+| Total | H | 32hrs| 21.5hrs | 21.5hrs |
 
 ## Code Snippet
 
