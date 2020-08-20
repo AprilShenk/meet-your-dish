@@ -119,6 +119,8 @@ const dishInfo = async dishName => {
   
 }
 
+const favsArray = []
+
 // Append dish div 
 const appendDiv = data => {
   // Setting Info
@@ -138,6 +140,8 @@ const appendDiv = data => {
   photo.src = data.strMealThumb
   const instructions = document.createElement('div')
   instructions.textContent = data.strInstructions
+  const favoriteButton = document.createElement('button')
+  favoriteButton.textContent = 'fav'
 
   // Get Ingredients
   for (item in data) {
@@ -159,11 +163,32 @@ const appendDiv = data => {
   div.append(instructions)
   div.append(ingredientSection)
   div.append(website)
+  div.append(favoriteButton)
+
+  favoriteButton.addEventListener('click', () => {
+    favsArray.push(data)
+    console.log(favsArray)
+    localStorage.setItem('favs', JSON.stringify(favsArray))
+  })
+
 }
+
+const getFavsButton = document.querySelector('.favs')
+getFavsButton.addEventListener('click', () => {
+  let getFavs = JSON.parse(localStorage.getItem('favs'))
+  console.log(getFavs)
+  createContainer()
+  removeDiv()
+  getFavs.forEach(data => {
+    appendDiv(data)
+  })
+})
+
 
 // Remove last child of container
 const removeDiv = () => {
   const oldDiv = document.querySelector('.container')
+  console.log(oldDiv.lastChild)
   while (oldDiv.lastChild) {
     oldDiv.removeChild(oldDiv.lastChild)
   }
