@@ -165,14 +165,15 @@ const appendDiv = data => {
   div.append(website)
   div.append(favoriteButton)
 
+  // Event listener to add to array and local storage
   favoriteButton.addEventListener('click', () => {
     favsArray.push(data)
-    console.log(favsArray)
     localStorage.setItem('favs', JSON.stringify(favsArray))
   })
 
 }
 
+// Event listener to retrieve from local storage and show on page
 const getFavsButton = document.querySelector('.favs')
 getFavsButton.addEventListener('click', () => {
   let getFavs = JSON.parse(localStorage.getItem('favs'))
