@@ -11,10 +11,8 @@ const categoryOptions = async () => {
   }
 }
 
-categoryOptions()
-
 // Populates category information into dropdown
-function categoryValues(dataList) {
+const categoryValues = dataList => {
   dataList.forEach(element => {
     const select = document.querySelector('#category-dropdown')
     const categories = element.strCategory
@@ -25,20 +23,23 @@ function categoryValues(dataList) {
     select.append(categoryOption)
   })
 }
+
 // Event listener callback function to get category
 // Calls second API call with category
-function getCategoryValue(e) {
+const getCategoryValue = e => {
   e.preventDefault()
   const categoryValue = document.querySelector('#category-dropdown').value
   getDishes(categoryValue)
 }
+
+categoryOptions()
 
 // Event listener for category
 const categorySubmit = document.querySelector('#category-dropdown')
 categorySubmit.addEventListener('change', getCategoryValue)
 
 // API call to get dish items into dropdown
-const getDishes = async(category) => {
+const getDishes = async category => {
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
   try {
     const response = await axios.get(url)
@@ -54,7 +55,7 @@ const getDishes = async(category) => {
 }
 
 // Creates dish form
-function dishDropdown() {
+const dishDropdown = () => {
   const categorySection = document.querySelector('.category')
 
   if(document.querySelector('.dish-form')){
@@ -74,7 +75,7 @@ function dishDropdown() {
 }
 
 // Populates dish dropdown
-function getDishOptions(dataList) {
+const getDishOptions = dataList => {
   dataList.forEach(element => {
     const dishOption = document.createElement('option')
     const dish = element.strMeal
@@ -86,7 +87,7 @@ function getDishOptions(dataList) {
 }
 
 // Event listener callback for dish
-function getDishValue(e) {
+const getDishValue = e => {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
   createContainer()
@@ -94,7 +95,7 @@ function getDishValue(e) {
 }
 
 // Creates section container
-function createContainer() {
+const createContainer = () => {
   const main = document.querySelector('main')
   const containerSection = document.createElement('section')
   containerSection.className = 'container'
@@ -119,7 +120,7 @@ const dishInfo = async dishName => {
 }
 
 // Append dish div 
-function appendDiv(data) {
+const appendDiv = data => {
   // Setting Info
   const section = document.querySelector('.container')
   const ingredientSection = document.createElement('ul')
@@ -132,6 +133,7 @@ function appendDiv(data) {
   const website = document.createElement('a')
   website.href = data.strSource
   website.textContent = 'View on Original Website'
+  website.setAttribute('target', '_blank')
   const photo = document.createElement('img')
   photo.src = data.strMealThumb
   const instructions = document.createElement('div')
@@ -144,7 +146,9 @@ function appendDiv(data) {
     if (item.substring(3, 6) === 'Ing') {
       ingredient.append(data[item])
       ingredientSection.append(ingredient)
-
+      if (!data[item]) {
+        ingredient.remove(data[item])
+      }
     } 
   }
 
@@ -158,7 +162,7 @@ function appendDiv(data) {
 }
 
 // Remove last child of container
-function removeDiv() {
+const removeDiv = () => {
   const oldDiv = document.querySelector('.container')
   while (oldDiv.lastChild) {
     oldDiv.removeChild(oldDiv.lastChild)
@@ -166,7 +170,7 @@ function removeDiv() {
 }
 
 // Get name value from input
-function getNameValue(e) {
+const getNameValue = e => {
   e.preventDefault()
   const name = document.querySelector('input').value
   createContainer()
@@ -174,7 +178,7 @@ function getNameValue(e) {
 }
 
 // Resets input 
-function clearInput() {
+const clearInput = () => {
   const input = document.querySelector('input')
   input.value = ''
 }
@@ -182,5 +186,3 @@ function clearInput() {
 // Event Listener for name input
 const nameSubmit = document.querySelector('#name-submit')
 nameSubmit.addEventListener('click', getNameValue)
-
-// Bugs
