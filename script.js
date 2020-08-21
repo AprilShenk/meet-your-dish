@@ -4,7 +4,6 @@ const categoryOptions = async () => {
   try {
     const response = await axios.get(url)
     const data = response.data.categories
-    // console.log(data)
     categoryValues(data)
   } catch (error) {
     console.log(`Error: ${error}`)
@@ -19,7 +18,6 @@ const categoryValues = dataList => {
     const categoryOption = document.createElement('option')
     categoryOption.value = categories
     categoryOption.textContent = categories
-    // categoryOption.className = 'category'
     select.append(categoryOption)
   })
 }
@@ -46,6 +44,7 @@ const getDishes = async category => {
     data = response.data.meals
     dishDropdown()
     getDishOptions(data)
+
     // Event listener
     const dishSubmit = document.querySelector('#dish-submit')
     dishSubmit.addEventListener('click', getDishValue)
@@ -61,8 +60,8 @@ const dishDropdown = () => {
   if(document.querySelector('.dish-form')){
     document.querySelector('.dish-form').remove()
   }
-  const dishForm = document.createElement('form')
 
+  const dishForm = document.createElement('form')
   dishForm.className = 'dish-form'
   const select = document.createElement('select')
   select.id = 'dish-dropdown'
@@ -110,13 +109,11 @@ const dishInfo = async dishName => {
   try {
     const response = await axios.get(url)
     const data = response.data.meals[0]
-    // console.log(data)
     appendDiv(data)
   } catch (error) {
     console.log(`Error: ${error}`)
     alert(`No results found`)
   }
-  
 }
 
 const favsArray = JSON.parse(localStorage.getItem('favs')) || []
@@ -146,7 +143,6 @@ const appendDiv = data => {
 
   // Get Ingredients
   for (item in data) {
-    // console.log(data[item], item)
     const ingredient = document.createElement('li')
     if (item.substring(3, 6) === 'Ing') {
       ingredient.append(data[item])
@@ -181,10 +177,8 @@ const appendDiv = data => {
     } else {
       favsArray.push(data)
       localStorage.setItem('favs', JSON.stringify(favsArray))
-    }
-     
+    } 
   })
-
 }
 
 // Event listener to retrieve from local storage and show on page
@@ -197,7 +191,6 @@ getFavsButton.addEventListener('click', () => {
     appendDiv(data)
   })
 })
-
 
 // Remove last child of container
 const removeDiv = (id = null) => {
