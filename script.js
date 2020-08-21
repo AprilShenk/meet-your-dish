@@ -168,7 +168,6 @@ const appendDiv = data => {
 
   // Event listener to add to array and local storage
   favoriteButton.addEventListener('click', () => {
-    // console.log(favsArray)
     if (favsArray.length) {
       const existingFavId = favsArray.findIndex(fav => fav.idMeal === data.idMeal)
       if (existingFavId === -1) {
@@ -192,7 +191,6 @@ const appendDiv = data => {
 const getFavsButton = document.querySelector('.favs')
 getFavsButton.addEventListener('click', () => {
   let getFavs = JSON.parse(localStorage.getItem('favs'))
-  // console.log(getFavs)
   createContainer()
   removeDiv()
   getFavs.forEach(data => {
@@ -205,7 +203,6 @@ getFavsButton.addEventListener('click', () => {
 const removeDiv = (id = null) => {
   if (id) {
     const oldDiv = document.getElementById(id)
-    // console.log(oldDiv)
     if (oldDiv) {
     oldDiv.parentNode.removeChild(oldDiv)
     }
