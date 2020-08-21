@@ -70,7 +70,7 @@ Sample JSON:
 |August 17| Project Approval / Pseudocode / Base HTML & CSS | Complete
 |August 18| CSS Flexbox Styling / Retrive API Data | Complete
 |August 19| DOM manipulation / Event Listeners | Complete
-|August 20| Advanced CSS / Addiontal Features | Incomplete
+|August 20| Advanced CSS / Addiontal Features | Complete
 |August 21| Presentations | Incomplete
 
 ## Priority Matrix
@@ -83,28 +83,44 @@ Sample JSON:
 | --- | :---: |  :---: | :---: | :---: |
 | Pseudocode | L | 1hrs| 1hrs | 1hrs |
 | Base HTML & CSS | M | 2hrs| 2hrs | 2hrs |
-| CSS Flexbox Styling | H | 3hrs| 2hrs | 2hrs |
+| CSS Flexbox Styling | H | 3hrs| 3hrs | 3hrs |
 | Media Query | M | 3hrs| 2.5hrs | 2.5hrs |
 | Event Listeners | M | 2hrs| 1hrs | 1hrs |
 | Retrive API Data | H | 2hrs| 2hrs | 2hrs |
 | Working with API Data | M | 3hrs| 3hrs | 3hrs |
 | DOM manipulation | M | 3hrs| 2hrs | 2hrs |
 | Appending Elements | M | 2hrs| 2hrs | 2hrs |
-| Add Dynamic HTML and CSS | L | 3hrs| --hrs | --hrs |
-| Advanced CSS | L | 2hrs| --hrs | --hrs |
-| Testing and Debugging CSS | M | 3hrs| 2hrs | 2hrs |
-| Testing and Debugging Functionality | M | 3hrs| 2hrs | 2hrs |
-| Total | H | 32hrs| 21.5hrs | 21.5hrs |
+| Add Dynamic HTML and CSS | L | 3hrs| 1hrs | 1hrs |
+| Advanced CSS | L | 2hrs| 1.5hrs | 1.5hrs |
+| Testing and Debugging CSS | M | 3hrs| 3hrs | 3hrs |
+| Testing and Debugging Functionality | M | 3hrs| 3hrs | 3hrs |
+| Local Storage | M | --hrs| 3hrs | 3hrs |
+| Total | H | 32hrs| 30hrs | 30hrs |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+The below code provides functionality that removes items from the local users favorites. 
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+favoriteButton.addEventListener('click', () => {
+    if (favsArray.length) {
+      const existingFavId = favsArray.findIndex(fav => fav.idMeal === data.idMeal)
+      if (existingFavId === -1) {
+        favsArray.push(data)
+        localStorage.setItem('favs', JSON.stringify(favsArray)) 
+      } else {
+        favsArray.splice(existingFavId, 1)
+        localStorage.setItem('favs', JSON.stringify(favsArray)) 
+        removeDiv(data.idMeal)
+      }
+    } else {
+      favsArray.push(data)
+      localStorage.setItem('favs', JSON.stringify(favsArray))
+    }
+     
+  })
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+- I left off the amounts for each ingredients because they were coming from different keys and it was difficult to style properly. 
+- I used an overlay scroll for additional text instead of a view more button because it was easier when working with the API data. 
