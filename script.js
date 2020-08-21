@@ -1,4 +1,7 @@
-// Calls API for information
+// GLOBAL VARIABLE
+const favsArray = JSON.parse(localStorage.getItem('favs')) || []
+
+// ASYNC FUNCTION: Calls API for category information
 const categoryOptions = async () => {
   const url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
   try {
@@ -10,7 +13,7 @@ const categoryOptions = async () => {
   }
 }
 
-// Populates category information into dropdown
+// FUNCTION: Populates category information into dropdown
 const categoryValues = dataList => {
   dataList.forEach(element => {
     const select = document.querySelector('#category-dropdown')
@@ -22,21 +25,22 @@ const categoryValues = dataList => {
   })
 }
 
-// Event listener callback function to get category
-// Calls second API call with category
+// CALLBACK FUNCTION: Get category value
+// Calls second API call with category value
 const getCategoryValue = e => {
   e.preventDefault()
   const categoryValue = document.querySelector('#category-dropdown').value
   getDishes(categoryValue)
 }
 
+// FUNCTION CALL: Category information in dropdown
 categoryOptions()
 
-// Event listener for category
+// EVENT LISTENER: Category form 
 const categorySubmit = document.querySelector('#category-dropdown')
 categorySubmit.addEventListener('change', getCategoryValue)
 
-// API call to get dish items into dropdown
+// ASYNC FUNCTION: CallS API to get dish items into dropdown
 const getDishes = async category => {
   const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
   try {
@@ -45,7 +49,7 @@ const getDishes = async category => {
     dishDropdown()
     getDishOptions(data)
 
-    // Event listener
+    // EVENT LISTENER: Dish form to populate results
     const dishSubmit = document.querySelector('#dish-submit')
     dishSubmit.addEventListener('click', getDishValue)
   } catch (error) {
@@ -53,7 +57,7 @@ const getDishes = async category => {
   }
 }
 
-// Creates dish form
+// FUNCTION: Creates form with dish options
 const dishDropdown = () => {
   const categorySection = document.querySelector('.category')
 
@@ -73,7 +77,7 @@ const dishDropdown = () => {
   categorySection.append(dishForm)
 }
 
-// Populates dish dropdown
+// FUNCTION: Populates dish dropdown
 const getDishOptions = dataList => {
   dataList.forEach(element => {
     const dishOption = document.createElement('option')
@@ -85,7 +89,7 @@ const getDishOptions = dataList => {
   })
 }
 
-// Event listener callback for dish
+// CALLBACK FUNCTION: Dish form
 const getDishValue = e => {
   e.preventDefault()
   const dishValue = document.querySelector('#dish-dropdown').value
@@ -93,7 +97,7 @@ const getDishValue = e => {
   dishInfo(dishValue)
 }
 
-// Creates section container
+// FUNCTION: Creates container
 const createContainer = () => {
   const main = document.querySelector('main')
   const containerSection = document.createElement('section')
@@ -101,7 +105,7 @@ const createContainer = () => {
   main.append(containerSection)
 }
 
-// API call to get dish selection
+// ASYNC FUNCTION: Calls API to get dish selection
 const dishInfo = async dishName => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${dishName}`
   removeDiv()
@@ -116,9 +120,7 @@ const dishInfo = async dishName => {
   }
 }
 
-const favsArray = JSON.parse(localStorage.getItem('favs')) || []
-
-// Append dish div 
+// FUNCTION: Append dish div 
 const appendDiv = data => {
   // Setting Info
   const section = document.querySelector('.container')
@@ -139,7 +141,7 @@ const appendDiv = data => {
   const instructions = document.createElement('div')
   instructions.textContent = data.strInstructions
   const favoriteButton = document.createElement('button')
-  favoriteButton.textContent = 'fav'
+  favoriteButton.textContent = 'Favorite'
 
   // Get Ingredients
   for (item in data) {
@@ -153,7 +155,7 @@ const appendDiv = data => {
     } 
   }
 
-  // Append
+  // Append items to the DOM
   section.append(div)
   div.append(title)
   div.append(photo)
@@ -162,7 +164,8 @@ const appendDiv = data => {
   div.append(website)
   div.append(favoriteButton)
 
-  // Event listener to add to array and local storage
+  // EVENT LISTENER & CALLBACK FUNCTION: Favorite button
+  // Add favorite to array and local storage
   favoriteButton.addEventListener('click', () => {
     if (favsArray.length) {
       const existingFavId = favsArray.findIndex(fav => fav.idMeal === data.idMeal)
@@ -181,18 +184,22 @@ const appendDiv = data => {
   })
 }
 
-// Event listener to retrieve from local storage and show on page
+// EVENT LISTENER & CALLBACK FUNCTION: Favorites from local storage
+// Retrieve from local storage and show on page
 const getFavsButton = document.querySelector('.favs')
 getFavsButton.addEventListener('click', () => {
   let getFavs = JSON.parse(localStorage.getItem('favs'))
   createContainer()
   removeDiv()
-  getFavs.forEach(data => {
-    appendDiv(data)
-  })
+  if (getFavs) {
+    getFavs.forEach(data => {
+      appendDiv(data)
+    })
+  }
+  
 })
 
-// Remove last child of container
+// FUNCTION: Remove last child of container
 const removeDiv = (id = null) => {
   if (id) {
     const oldDiv = document.getElementById(id)
@@ -208,7 +215,7 @@ const removeDiv = (id = null) => {
   
 }
 
-// Get name value from input
+// FUNCTION: Get name value from input
 const getNameValue = e => {
   e.preventDefault()
   const name = document.querySelector('input').value
@@ -216,12 +223,12 @@ const getNameValue = e => {
   dishInfo(name)
 }
 
-// Resets input 
+// FUNCTION: Resets input field
 const clearInput = () => {
   const input = document.querySelector('input')
   input.value = ''
 }
 
-// Event Listener for name input
+// EVENT LISTENER: Name form
 const nameSubmit = document.querySelector('#name-submit')
 nameSubmit.addEventListener('click', getNameValue)
