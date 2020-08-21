@@ -119,7 +119,7 @@ const dishInfo = async dishName => {
   
 }
 
-const favsArray = []
+const favsArray = JSON.parse(localStorage.getItem('favs')) || []
 
 // Append dish div 
 const appendDiv = data => {
@@ -130,6 +130,7 @@ const appendDiv = data => {
   ingredientSection.textContent = 'Ingredient List'
   const div = document.createElement('div')
   div.className = 'dish-div'
+  div.id = data.idMeal
   const title = document.createElement('h3')
   title.textContent = data.strMeal
   const website = document.createElement('a')
@@ -167,8 +168,22 @@ const appendDiv = data => {
 
   // Event listener to add to array and local storage
   favoriteButton.addEventListener('click', () => {
-    favsArray.push(data)
-    localStorage.setItem('favs', JSON.stringify(favsArray))
+    // console.log(favsArray)
+    if (favsArray.length) {
+      const existingFavId = favsArray.findIndex(fav => fav.idMeal === data.idMeal)
+      if (existingFavId === -1) {
+        favsArray.push(data)
+        localStorage.setItem('favs', JSON.stringify(favsArray)) 
+      } else {
+        favsArray.splice(existingFavId, 1)
+        localStorage.setItem('favs', JSON.stringify(favsArray)) 
+        removeDiv(data.idMeal)
+      }
+    } else {
+      favsArray.push(data)
+      localStorage.setItem('favs', JSON.stringify(favsArray))
+    }
+     
   })
 
 }
@@ -177,7 +192,7 @@ const appendDiv = data => {
 const getFavsButton = document.querySelector('.favs')
 getFavsButton.addEventListener('click', () => {
   let getFavs = JSON.parse(localStorage.getItem('favs'))
-  console.log(getFavs)
+  // console.log(getFavs)
   createContainer()
   removeDiv()
   getFavs.forEach(data => {
@@ -187,12 +202,20 @@ getFavsButton.addEventListener('click', () => {
 
 
 // Remove last child of container
-const removeDiv = () => {
-  const oldDiv = document.querySelector('.container')
-  console.log(oldDiv.lastChild)
-  while (oldDiv.lastChild) {
-    oldDiv.removeChild(oldDiv.lastChild)
+const removeDiv = (id = null) => {
+  if (id) {
+    const oldDiv = document.getElementById(id)
+    // console.log(oldDiv)
+    if (oldDiv) {
+    oldDiv.parentNode.removeChild(oldDiv)
+    }
+  } else {
+    const oldDiv = document.querySelector('.container')
+    while (oldDiv.lastChild) {
+      oldDiv.removeChild(oldDiv.lastChild)
+    }
   }
+  
 }
 
 // Get name value from input
