@@ -94,7 +94,7 @@ Sample JSON:
 | Advanced CSS | L | 2hrs| 1.5hrs | 1.5hrs |
 | Testing and Debugging CSS | M | 3hrs| 3hrs | 3hrs |
 | Testing and Debugging Functionality | M | 3hrs| 3hrs | 3hrs |
-| Local Storage | M | --hrs| 3hrs | 3hrs |
+| Local Storage | L | --hrs| 3hrs | 3hrs |
 | Total | H | 32hrs| 30hrs | 30hrs |
 
 ## Code Snippet
